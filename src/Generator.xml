@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/MybatisGenerator?useUnicode=true"
+                        userId="root"
+                        password="haiqiang">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+      <!--此处存放实体类的文件-->
+        <javaModelGenerator targetPackage="com.mybatis.generator.Entity" targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+      <!--此处存放配置的文件-->
+        <sqlMapGenerator targetPackage="Mapper"  targetProject=".\src\main\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <!--此处存放持久层的文件-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.mybatis.generator.Repository"  targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table  tableName="student" domainObjectName="student" > </table>
+        <table  tableName="teacher" domainObjectName="teacher" > </table>
+    </context>
+</generatorConfiguration>
